@@ -1,0 +1,34 @@
+<h1>Monthly Report</h1>
+<p>Attached is the monthly report for the last month.</p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Professional Name</th>
+      <th>Professional Email</th>
+      <th>Service Name</th>
+      <th>Date of Request</th>
+      <th>Status</th>
+      <th>Rating</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if service_requests | length != 0 %} {% for req in service_requests %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{req.pro_name}}</td>
+      <td>{{req.pro_email}}</td>
+      <td>{{req.service_name}}</td>
+      <td>{{req.req_date}}</td>
+      <td>{{req.req_status}}</td>
+      <td>{{req.req_rating}}</td>
+      <td>{{req.req_remarks}}</td>
+    </tr>
+    {% endfor %} {% else %}
+    <tr colspan="8">
+      No Service Requested this month.
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
